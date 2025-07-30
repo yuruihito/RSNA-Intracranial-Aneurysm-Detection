@@ -1,79 +1,189 @@
-# 🧠 RSNA 2023 Brain Aneurysm Detection Challenge
+# 🧠 RSNA Brain Aneurysm Detection Challenge
 
 ---
 
 ## 🚀 Overview | 概要
 
 ### English
-Welcome to the RSNA 2023 Brain Aneurysm Detection Challenge! This competition is a vital initiative to **revolutionize the early detection of intracranial aneurysms**—a silent and potentially deadly condition. Affecting approximately 3% of the global population, these aneurysms often go unnoticed until they rupture, leading to severe illness or death. Annually, around 500,000 lives are lost worldwide due to ruptured aneurysms, with nearly half of the victims being under 50 years old.
-
-Our mission, in collaboration with the American Society of Neuroradiology (ASNR), the Society of Neurointerventional Surgery (SNIS), and the European Society of Neuroradiology (ESNR), is to develop **advanced Machine Learning models**. These models will accurately detect and precisely localize intracranial aneurysms across various medical imaging modalities, including CTA, MRA, T1 post-contrast, and T2-weighted MRI. This challenge emphasizes **real-world clinical variability**, incorporating data from diverse institutions, scanners, and imaging protocols to test the generalizability of your models.
-
-Your contributions will be instrumental in paving the way for automated, accurate, and efficient diagnostic solutions. Ultimately, this will enable earlier interventions, **saving countless lives** by preventing catastrophic aneurysm ruptures.
+This project addresses the critical challenge of accurate and timely detection of intracranial aneurysms. Often silent until rupture, these localized arterial dilations in the brain pose a significant, life-threatening risk. A ruptured aneurysm can lead to subarachnoid hemorrhage, a severe form of stroke with high morbidity and mortality rates. Our goal is to develop advanced machine learning models that can detect and precisely localize these aneurysms across various medical imaging modalities, ultimately contributing to earlier intervention and improved patient outcomes.
 
 <details>
 <summary>日本語訳を表示</summary>
 
-RSNA 2023 脳動脈瘤検出チャレンジへようこそ！このコンペティションは、**脳動脈瘤の早期発見を革新する**ための重要な取り組みです。脳動脈瘤は、世界人口の約3%に影響を及ぼす、初期には無症状で潜在的に命に関わる病態です。破裂するまで発見されないことが多く、破裂すると重篤な病気や死に至ります。毎年、世界中で約50万人が動脈瘤破裂で命を落としており、そのほぼ半数が50歳未満です。
-
-本コンペティションは、米国神経放射線学会（ASNR）、神経血管内治療学会（SNIS）、欧州神経放射線学会（ESNR）との共同開催で、**高度な機械学習モデルの開発**を目指します。これらのモデルは、CTA、MRA、T1造影後、T2強調MRIなど、様々な医用画像モダリティにおいて、脳動脈瘤を正確に検出し、その位置を特定します。このチャレンジでは、**実世界の臨床的変動**が重視されており、多様な医療機関、スキャナー、画像プロトコルからのデータが組み込まれ、モデルの汎用性が試されます。
-
-皆さんの貢献は、自動化された正確かつ効率的な診断ソリューションへの道を切り開く上で不可欠です。最終的には、早期介入を可能にすることで、**壊滅的な動脈瘤破裂を防ぎ、数え切れない命を救う**ことにつながるでしょう。
-
+このプロジェクトは、頭蓋内動脈瘤の正確かつタイムリーな検出という極めて重要な課題に取り組んでいます。脳内の動脈の局所的な拡張である動脈瘤は、破裂するまで無症状であることが多く、生命を脅かす重大なリスクを伴います。動脈瘤が破裂すると、くも膜下出血という重篤な脳卒中を引き起こし、高い罹患率と死亡率を伴います。私たちの目標は、様々な医用画像モダリティにおいてこれらの動脈瘤を検出し、その位置を正確に特定できる高度な機械学習モデルを開発し、最終的に早期介入と患者の転帰改善に貢献することです。
 </details>
 
 ---
 
 ## 🎯 Clinical Problem & Goal | 臨床上の問題と目標
 
-### English
-**Intracranial aneurysms** are localized abnormal dilations of brain arteries. While often asymptomatic until rupture, even small aneurysms pose a significant risk, potentially leading to **subarachnoid hemorrhage (SAH)**—a severe type of stroke. SAH is the most common cause of non-traumatic SAH and accounts for 3% of all strokes and 5% of stroke deaths. Early detection is crucial, as minimally-invasive treatments can often be life-saving.
+### Prevalence and Risk:
 
-This challenge primarily focuses on detecting **saccular aneurysms**, the most common form, and aims for both their **detection and precise localization** across the entire brain. Your models will need to identify the presence or absence of aneurysms within **13 specific anatomical locations** for each imaging series.
+Prevalence and Risk:
+
+They affect an estimated 3% of the global population, with 15-30% of affected individuals having multiple aneurysms.
+
+Alarmingly, up to 50% are only diagnosed after they rupture. This event, known as subarachnoid hemorrhage (SAH), is a life-threatening type of stroke caused by bleeding into the subarachnoid space.
+
+A ruptured aneurysm is the most common cause of non-traumatic SAH, accounting for 3% of all strokes and 5% of stroke deaths.
+
+Worldwide, ruptured aneurysms cause approximately 500,000 deaths annually, with nearly half of the victims being under 50.
+
+Symptoms and Challenges in Detection:
+
+Most intracranial aneurysms are asymptomatic until they rupture. The rupture often presents as a severe "thunderclap" headache, reduced consciousness, and can be fatal if untreated.
+
+Larger aneurysms may occasionally cause symptoms before rupture by pressing on adjacent nerves.
+
+Detection is challenging because aneurysms are often small and remain asymptomatic. However, even small aneurysms carry a rupture risk.
+
+Treatment and the Role of Early Detection:
+
+When detected, aneurysms can often be treated with minimally-invasive procedures like endovascular coiling or surgical clipping, which can be life-saving.
+
+While the management of small, asymptomatic aneurysms remains controversial, early detection allows for careful monitoring and timely intervention, significantly reducing the risk of catastrophic rupture.
+
+This project specifically targets the identification of saccular aneurysms, focusing on both their detection and precise localization anywhere within the brain. Other aneurysm types (e.g., fusiform, pseudoaneurysms) are excluded due to their distinct imaging appearances and risk profiles.
 
 <details>
 <summary>日本語訳を表示</summary>
 
-**脳動脈瘤**は、脳動脈の局所的な異常な拡張です。破裂するまで無症状であることが多いですが、小さな動脈瘤であっても、**くも膜下出血（SAH）**という重篤な脳卒中を引き起こす可能性があります。くも膜下出血は非外傷性SAHの最も一般的な原因であり、全脳卒中の3%、脳卒中による死亡の5%を占めます。低侵襲治療が命を救うことが多いため、早期発見が極めて重要です。
+脳動脈瘤（脳内動脈の局所的な異常拡張）は、臨床上極めて重要な問題です。最も一般的なのは**嚢状動脈瘤（または「ベリー動脈瘤」）**で、通常は動脈の分岐部に発生する、丸みを帯びた分葉状の突出として現れます。
 
-このチャレンジは、最も一般的な形態である**嚢状動脈瘤の検出**に主に焦点を当てており、脳全体におけるその**検出と正確な局在化**の両方を目指しています。あなたのモデルは、各画像シリーズについて、**13の特定の解剖学的場所**における動脈瘤の有無を識別する必要があります。
+罹患率とリスク:
+
+**世界人口の推定3%**が罹患しており、これらの患者の15～30%では複数の動脈瘤が見つかります。
+
+驚くべきことに、最大50%が破裂後に初めて診断されます。この事象は**くも膜下出血（SAH）**として知られ、くも膜下腔への出血によって引き起こされる生命を脅かすタイプの脳卒中です。
+
+動脈瘤破裂は非外傷性くも膜下出血の最も一般的な原因であり、全脳卒中の3%と脳卒中による死亡の5%を占めます。
+
+世界中で、動脈瘤破裂により年間約50万人が死亡しており、犠牲者の約半数は50歳未満です。
+
+症状と検出の課題:
+
+ほとんどの脳動脈瘤は破裂するまで無症状です。破裂はしばしば激しい「雷鳴頭痛」、意識障害として現れ、治療せずに放置すれば致命的になる可能性があります。
+
+より大きな動脈瘤は、隣接する神経を圧迫するなどして、破裂前に症状を引き起こすことがあります。
+
+検出が困難なのは、動脈瘤が小さく、無症状であることが多いからです。しかし、小さな動脈瘤であっても破裂のリスクがあります。
+
+治療と早期発見の役割:
+
+検出された場合、動脈瘤は血管内コイル塞栓術や外科的クリッピングのような低侵襲の手術で治療できることが多く、これらは命を救う可能性があります。
+
+小さく無症状の動脈瘤の管理については議論の余地がありますが、早期に発見することで注意深い経過観察とタイムリーな介入が可能になり、壊滅的な破裂のリスクを大幅に低減できます。
+
+このプロジェクトは、嚢状動脈瘤の特定に特化しており、脳内のどこにでも存在する動脈瘤の検出と正確な局在化の両方を目標としています。他のタイプの動脈瘤（紡錘状動脈瘤、仮性動脈瘤など）は、その画像上の見え方やリスクプロファイルが異なるため、対象外とします。
 
 </details>
 
 ---
 
-## 📸 Imaging Modalities | 画像診断モダリティ
+## 🧠 Anatomical Context: Mapping the Aneurysms | 解剖学的背景：動脈瘤の部位特定
 
 ### English
-We're leveraging a diverse set of medical imaging modalities to provide a comprehensive view of the brain vasculature. This includes:
+Understanding the brain's arterial supply is crucial for accurate aneurysm localization. The brain receives blood from two main circulations:
 
-* **Computed Tomography Angiography (CTA):** A non-invasive technique that visualizes blood vessels and surrounding tissues. While faster and less risky than DSA, it involves ionizing radiation and has lower spatial resolution.
-* **Magnetic Resonance Angiography (MRA):** A valuable alternative that avoids ionizing radiation and iodinated contrast. While generally safer, it has lower spatial resolution and longer scan times.
-* **T1 Post-Contrast MRI & T2-Weighted MRI:** Though not typically used for aneurysm evaluation, these commonly acquired sequences are included to explore opportunistic screening possibilities.
+Anterior Circulation: Primarily supplied by the Internal Carotid Arteries (ICAs). For this challenge, the ICA is segmented into supraclinoid and infraclinoid portions due to the clinical significance of the dura mater entry point. Major branches include the Middle Cerebral Arteries (MCAs) and Anterior Cerebral Arteries (ACAs).
+
+Posterior Circulation: Supplied by the Vertebral Arteries (VAs), which merge to form the Basilar Artery (BA). Key branches are the Posterior Inferior, Anterior Inferior, Superior Cerebellar Arteries, and Posterior Cerebral Arteries. For our task, the posterior circulation is divided into the Basilar Tip and the rest of the posterior circulation.
+
+These circulations communicate at the base of the brain through the Circle of Willis, a critical arterial connection providing collateral blood flow. This circle involves parts of the bilateral ACAs and PCAs, linked by the Anterior Communicating Artery (ACom) and paired Posterior Communicating Arteries (PComs).
+
+Target Locations for Prediction:
+Our models aim to predict the presence or absence of aneurysms in 13 specific anatomical locations for each imaging series. These locations are critical for clinical diagnosis and treatment planning:
+
+Left Infraclinoid Internal Carotid Artery
+
+Right Infraclinoid Internal Carotid Artery
+
+Left Supraclinoid Internal Carotid Artery
+
+Right Supraclinoid Internal Carotid Artery
+
+Left Middle Cerebral Artery
+
+Right Middle Cerebral Artery
+
+Anterior Communicating Artery
+
+Left Anterior Cerebral Artery
+
+Right Anterior Cerebral Artery
+
+Left Posterior Communicating Artery
+
+Right Posterior Communicating Artery
+
+Basilar Tip
+
+Other Posterior Circulation (e.g., mid-basilar, vertebral, PICA, AICA, SCA, PCA)
 
 <details>
 <summary>日本語訳を表示</summary>
 
-脳血管系を包括的に把握するため、様々な医用画像モダリティを活用します。これには以下が含まれます：
+脳動脈瘤の正確な局在化には、脳の動脈供給を理解することが不可欠です。脳は主に2つの循環から血液供給を受けています。
 
-* **CT血管造影（CTA）：** 血管と周囲組織を視覚化する非侵襲的手法です。DSAよりも高速でリスクが低いですが、電離放射線を使用し、空間分解能が低いです。
-* **磁気共鳴血管造影（MRA）：** 電離放射線とヨード造影剤の使用を避ける貴重な代替手段です。一般的に安全ですが、空間分解能が低く、スキャン時間が長いです。
-* **T1造影後MRI & T2強調MRI：** 通常、動脈瘤の評価には使用されませんが、これらの一般的なシーケンスは、機会的スクリーニングの可能性を探るために含まれています。
+前部循環： 主に**内頚動脈（ICA）**によって供給されます。このチャレンジでは、硬膜への進入点の臨床的意義から、ICAは硬膜上部分と硬膜下部分に分けられます。主要な枝には、中大脳動脈（MCA）と前大脳動脈（ACA）が含まれます。
+
+後部循環： 椎骨動脈（VA）から供給され、椎骨動脈は合流して脳底動脈（BA）を形成します。主要な枝には、後下小脳動脈、前下小脳動脈、上小脳動脈、後大脳動脈があります。私たちの課題では、後部循環は脳底動脈先端と残りの後部循環に分けられます。
+
+これらの循環は、脳底にあるウィリス動脈輪を介して連絡しており、側副血行路を維持する上で重要な動脈の連結です。この動脈輪は、前交通動脈（ACom）と対をなす後交通動脈（PCom）によって連結された左右のACAとPCAの一部で構成されます。
+
+予測対象の解剖学的場所:
+私たちのモデルは、各画像シリーズについて、13の特定の解剖学的場所における動脈瘤の有無を予測することを目指しています。これらの場所は、臨床診断と治療計画にとって重要です。
+
+左硬膜下内頚動脈
+
+右硬膜下内頚動脈
+
+左硬膜上内頚動脈
+
+右硬膜上内頚動脈
+
+左中大脳動脈
+
+右中大脳動脈
+
+前交通動脈
+
+左前大脳動脈
+
+右前大脳動脈
+
+左後交通動脈
+
+右後交通動脈
+
+脳底動脈先端
+
+その他の後部循環（例：脳底動脈中央部、椎骨動脈、PICA、AICA、SCA、PCA）
 
 </details>
 
 ---
 
-## 📊 Evaluation Metric | 評価指標
+## 📸 Imaging Modalities for Aneurysm Detection | 動脈瘤検出のための画像診断モダリティ
 
 ### English
-Submissions are evaluated based on a **weighted multilabel Area Under the ROC Curve (AUC ROC)**. For each of the fourteen target labels, an AUC ROC score is computed. The score for **"Aneurysm Present" is weighted by 13**, while all other 13 location-specific scores are weighted by 1. The final score is the average of these fourteen weighted AUC ROC scores.
+Aneurysms can be identified using various imaging modalities, each with its own advantages and limitations:
 
-Mathematically, the final score is represented as:
+Digital Subtraction Angiography (DSA): Generally considered the "gold standard" due to its high spatial and temporal resolution, especially with 3D acquisitions. However, it's invasive, requiring catheter insertion.
 
-$$\text{Final Score} = \frac{\text{AUC}_{\text{Aneurysm Present}} + \text{average}(\text{AUC}_{\text{other 13 scores}})}{2}$$
+Computed Tomography Angiography (CTA): A non-invasive and faster alternative to DSA. It provides good visualization of blood vessels and surrounding brain tissue. However, it uses ionizing radiation and iodinated contrast, and has lower spatial resolution compared to DSA, making small aneurysms harder to detect. It images at a single time point, limiting flow evaluation.
 
-You can find the metric code [here](https://www.kaggle.com/code/awsaf49/mean-weighted-columnwise-aucroc).
+Example: Middle cerebral artery aneurysm visible on CTA
+
+Magnetic Resonance Angiography (MRA): A valuable non-invasive option that avoids ionizing radiation and iodinated contrast. It can be performed with or without contrast agents. Limitations include lower spatial resolution, longer scan times, and contraindications for patients with certain implants.
+
+Example: Middle cerebral artery aneurysm visible on MRA
+
+T1 Post-Contrast MRI & T2-Weighted MRI: While not typically used as primary aneurysm evaluation sequences, aneurysms can still be visible on them. Including these commonly acquired MRI sequences in the dataset offers an opportunity for opportunistic screening from routine brain imaging studies.
+
+Example: Anterior communicating artery aneurysm visible on T1 post-contrast and T2-weighted MRI
+
+This project leverages data from CTA, MRA, and T1 post-contrast/T2-weighted MRI to develop robust models capable of detecting saccular aneurysms across diverse clinical imaging settings.
 
 <details>
 <summary>日本語訳を表示</summary>
@@ -117,94 +227,3 @@ The dataset is rich, containing not only imaging data (DICOM images with segment
 </details>
 
 ---
-
-## ✨ Why Participate? | 参加する意義
-
-### English
-* **Save Lives:** Your model could directly contribute to earlier diagnosis and intervention, preventing devastating aneurysm ruptures.
-* **Real-World Impact:** Work with diverse, clinically varied data that mimics real hospital settings, enhancing your model's robustness and generalizability.
-* **Learn & Grow:** Explore cutting-edge medical imaging analysis, machine learning techniques, and collaborate with a global community of experts.
-
-Let's make a difference together! Join the challenge and help us build a healthier future.
-
-<details>
-<summary>日本語訳を表示</summary>
-
-* **命を救う：** あなたのモデルが早期診断と介入に直接貢献し、壊滅的な動脈瘤破裂を防ぐ可能性があります。
-* **実世界への影響：** 実際の病院環境を模倣した多様な臨床データに取り組み、モデルの堅牢性と汎用性を高めます。
-* **学びと成長：** 最先端の医用画像解析、機械学習技術を探求し、世界中の専門家コミュニティと協力できます。
-
-一緒に変化を生み出しましょう！チャレンジに参加して、より健康な未来を築く手助けをしてください。
-
-</details>
-
----
-
-## 🤝 How to Contribute | 貢献方法
-
-### English
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/your-username/RSNA-Aneurysm-Detection.git](https://github.com/your-username/RSNA-Aneurysm-Detection.git)
-    cd RSNA-Aneurysm-Detection
-    ```
-2.  **Set Up Your Environment:** (Recommended: Python 3.9+)
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  **Explore the Data:** Dive into the `data/` directory and the provided `train.csv` and `train_localizers.csv`.
-4.  **Develop Your Model:** Create your ML models for aneurysm detection and localization.
-5.  **Submit Your Solution:** Utilize the provided evaluation API. Refer to the [example notebook](https://www.kaggle.com/code/awsaf49/rsna-2023-submission-example) for detailed submission instructions.
-6.  **Share Your Insights:** Feel free to open issues or pull requests to share your findings and improvements!
-
-<details>
-<summary>日本語訳を表示</summary>
-
-1.  **リポジトリをクローンする：**
-    ```bash
-    git clone [https://github.com/your-username/RSNA-Aneurysm-Detection.git](https://github.com/your-username/RSNA-Aneurysm-Detection.git)
-    cd RSNA-Aneurysm-Detection
-    ```
-2.  **環境をセットアップする：** (推奨：Python 3.9+)
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  **データを探索する：** `data/`ディレクトリと提供されている`train.csv`、`train_localizers.csv`を詳しく調べてください。
-4.  **モデルを開発する：** 動脈瘤検出と局在化のための機械学習モデルを作成します。
-5.  **ソリューションを提出する：** 提供された評価APIを利用してください。詳細な提出手順については、[こちらの例のノートブック](https://www.kaggle.com/code/awsaf49/mean-weighted-columnwise-aucroc)を参照してください。
-6.  **知見を共有する：** 発見や改善点を共有するために、自由にissueを開いたり、プルリクエストを作成したりしてください！
-
-</details>
-
----
-
-## License | ライセンス
-
-### English
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-<details>
-<summary>日本語訳を表示</summary>
-
-このプロジェクトはMITライセンスの下でライセンスされています。詳細については[LICENSE](LICENSE)ファイルを参照してください。
-
-</details>
-
----
-
-### **Let's detect aneurysms before they rupture!**
-### **破裂する前に動脈瘤を検出しましょう！**
-
----
-
----
-
-### **表示されない場合のトラブルシューティング**
-
-もしこのコードを`README.md`に貼り付けてもGitHub上で折りたたみが機能しない場合は、以下を確認してみてください。
-
-* **GitHubにプッシュしましたか？** ローカルで編集しただけでは、GitHub上の表示は変わりません。`git add .` -> `git commit -m "update README"` -> `git push` の手順で変更を反映させてください。
-* **ブラウザのキャッシュをクリアしてみる**：まれにブラウザのキャッシュが原因で古い表示が残っていることがあります。
-* **GitHubのWebエディタで直接編集してみる**：もし可能であれば、GitHubのリポジトリページで`README.md`を直接編集し、プレビュー機能で動作を確認してみてください。
-
-この完全なコードで、ご希望の表示が実現できることを願っています。他に何かお手伝いできることがありましたら、お気軽にお声がけください！
