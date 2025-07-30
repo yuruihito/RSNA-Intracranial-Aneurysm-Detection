@@ -4,7 +4,6 @@
 
 ## 🚀 Overview | 概要
 
-### English
 This project addresses the critical challenge of accurate and timely detection of intracranial aneurysms. Often silent until rupture, these localized arterial dilations in the brain pose a significant, life-threatening risk. A ruptured aneurysm can lead to subarachnoid hemorrhage, a severe form of stroke with high morbidity and mortality rates. Our goal is to develop advanced machine learning models that can detect and precisely localize these aneurysms across various medical imaging modalities, ultimately contributing to earlier intervention and improved patient outcomes.
 
 <details>
@@ -82,7 +81,6 @@ This project specifically targets the identification of saccular aneurysms, focu
 
 ## 🧠 Anatomical Context: Mapping the Aneurysms | 解剖学的背景：動脈瘤の部位特定
 
-### English
 Understanding the brain's arterial supply is crucial for accurate aneurysm localization. The brain receives blood from two main circulations:
 
 Anterior Circulation: Primarily supplied by the Internal Carotid Arteries (ICAs). For this challenge, the ICA is segmented into supraclinoid and infraclinoid portions due to the clinical significance of the dura mater entry point. Major branches include the Middle Cerebral Arteries (MCAs) and Anterior Cerebral Arteries (ACAs).
@@ -166,7 +164,6 @@ Other Posterior Circulation (e.g., mid-basilar, vertebral, PICA, AICA, SCA, PCA)
 
 ## 📸 Imaging Modalities for Aneurysm Detection | 動脈瘤検出のための画像診断モダリティ
 
-### English
 Aneurysms can be identified using various imaging modalities, each with its own advantages and limitations:
 
 Digital Subtraction Angiography (DSA): Generally considered the "gold standard" due to its high spatial and temporal resolution, especially with 3D acquisitions. However, it's invasive, requiring catheter insertion.
@@ -202,7 +199,6 @@ $$\text{最終スコア} = \frac{\text{AUC}_{\text{動脈瘤の有無}} + \text{
 
 ## 📁 Dataset Details | データセットの詳細
 
-### English
 The dataset is rich, containing not only imaging data (DICOM images with segmentation labels for a subset) but also two crucial CSV files: `train.csv` and `train_localizers.csv`.
 
 * **`train.csv`**: Contains primary training labels for each imaging series, including:
